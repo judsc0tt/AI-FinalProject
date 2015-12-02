@@ -1,4 +1,3 @@
-# You want to make sure your version produces better error rates than this :)
 
 import sys
 
@@ -14,7 +13,7 @@ import sys
 #it takes in pairs of integers that represent the location of a robot
 #in x,y space and outputs a file containing 60 predicted locations for the robot
 
-#written by William Scott for GT-CS8803 fall 2014
+#written by William Scott for GT-CS8803 fall 2015
 
 from math import *
 from os.path import abspath, exists
@@ -205,31 +204,17 @@ location = []
 #let user know the calculations have started
 print "\nstarting prediction calculations..."
 
-#set path to test file
-#f = abspath("testdata.txt")
+#set path to test file from argument
 f = sys.argv[1]
 #open the file
 file_handle = open(f, 'r')
-#x, y = open(filename, 'r').readlines()[-1].split(',')
-
 #read the lines into a list, remove the extra stuff [],/n and replace
 #the space between the numbers with a comma, append this data to the robot_data array
 #close file when done
 with open(f) as f:
     for line in f:
-#        line = line.translate(None, '[]')
-#        line = line.translate(None, '\n')
-#        line = line.translate(None, ',')
-#        line = re.sub(' ', ",",line )
         robot_data.append(line)
 f.closed
-
-#filename = sys.argv[1]
-#x, y = open(filename, 'r').readlines()[-1].split(',')
-#with open('prediction.txt', 'w') as f:
-#    for _ in range(60):
-#        print >> f, '%s,%s' % (x.strip(), y.strip())
-
 
 #iterate through the robaot_data array and split the values into pairs at the commas
 #append this to a new array called measurements
